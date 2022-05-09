@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM rclone/rclone:latest
 
 COPY ./entrypoint.sh /workdir/
 
@@ -8,7 +8,7 @@ ENV PUID=0
 ENV PGID=0
 ENV TZ=UTC
 
-RUN apk add --no-cache ca-certificates rclone su-exec tzdata apache2-utils
+RUN apk add --no-cache su-exec apache2-utils
 
 VOLUME /mnt/config /mnt/data
 
